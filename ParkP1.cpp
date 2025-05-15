@@ -1,4 +1,7 @@
 #include "ParkP1.h"
+
+using namespace std;
+
 data_in::data_in(int cs, double as): car_speed(cs), available_space(as){}
 int data_in::get_car_speed(void)
 {
