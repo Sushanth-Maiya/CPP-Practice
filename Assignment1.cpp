@@ -127,45 +127,109 @@ using namespace std;
 // -  A function SCHEDULE() to allow user to enter values for TestCode, Description, NoCandidate & call function CALCNTR() to calculate the number of Centres 
 // - A function DISPTEST() to allow user to view the content of all the data members  
 
-class test
+// class test
+// {
+//     int TestCode,NoCandidate,CenterReqd;
+//     string Description;
+//     int CALCNTR(void)
+//     {
+//         return (NoCandidate/100+1);
+//     }
+//     public:
+//     void SCHEDULE(int t,int n,string d)
+//     {
+//         TestCode = t;
+//         NoCandidate = n;
+//         Description = d;
+//         CenterReqd = CALCNTR();
+//     }
+//     void DISPTEST(void)
+//     {
+//         cout<<"TEST Content: "<<endl;
+//         cout<<"Test Code: "<<TestCode<<endl;
+//         cout<<"Number of candidates: "<<NoCandidate<<endl;
+//         cout<<"Description: "<<Description<<endl;
+//         cout<<"Centers Required: "<<CenterReqd<<endl;
+//     }
+// };
+// int main()
+// {
+//     int tc,nc;
+//     string de;
+//     cout<<"Enter details: "<<endl;
+//     cout<<"Description-> ";
+//     getline(cin,de);
+//     cout<<endl<<"Test Code-> ";
+//     cin>>tc;
+//     cout<<endl<<"No. of candidates: ";
+//     cin>>nc;
+//     cout<<endl;
+//     test t;
+//     t.SCHEDULE(tc,nc,de);
+//     t.DISPTEST();
+//     return 0;
+// }
+
+// 4.  Define a class in C++ with following description: 
+// Private Members 
+// A data member Flight number of type integer 
+// A data member Destination of type string 
+// A data member Distance of type float 
+// A data member Fuel of type float 
+// A member function CALFUEL() to calculate the value of Fuel as per the following criteria 
+//             Distance                                                          Fuel 
+//             <=1000                                                           500 
+//             more than 1000  and <=2000                          1100 
+//             more than 2000                                              2200 
+// Public Members 
+// A function FEEDINFO() to allow user to enter values for Flight Number, Destination, Distance & call function CALFUEL() to calculate the quantity of Fuel 
+// A function SHOWINFO() to allow user to view the content of all the data members   
+
+class Kingfisher
 {
-    int TestCode,NoCandidate,CenterReqd;
-    string Description;
-    int CALCNTR(void)
+    int flight_no;
+    float distance,fuel;
+    string destination;
+    float CALFUEL(void)
     {
-        return (NoCandidate/100+1);
+        if(distance<=1000)
+        return (500);
+        else if(distance>1000 && distance<=2000)
+        return (1100);
+        else
+        return (2200);
     }
     public:
-    void SCHEDULE(int t,int n,string d)
+    void FEEDINFO(int f,float di,string d)
     {
-        TestCode = t;
-        NoCandidate = n;
-        Description = d;
-        CenterReqd = CALCNTR();
+        flight_no = f;
+        distance = di;
+        destination = d;
+        fuel = CALFUEL();
     }
-    void DISPTEST(void)
+    void SHOWINFO(void)
     {
-        cout<<"TEST Content: "<<endl;
-        cout<<"Test Code: "<<TestCode<<endl;
-        cout<<"Number of candidates: "<<NoCandidate<<endl;
-        cout<<"Description: "<<Description<<endl;
-        cout<<"Centers Required: "<<CenterReqd<<endl;
+        cout<<"Flight Details: "<<endl;
+        cout<<"Flight number: "<<flight_no<<endl;
+        cout<<"Destination: "<<destination<<" "<<"Distance: "<<distance<<endl;
+        cout<<"Fuel required: "<<fuel<<endl;
     }
 };
 int main()
 {
-    int tc,nc;
+    Kingfisher k;
+    int fn;
     string de;
-    cout<<"Enter details: "<<endl;
-    cout<<"Description-> ";
+    float di;
+    cout<<"Enter flight details: "<<endl;
+    cout<<"Flight number-> ";
+    cin>>fn;
+    cout<<endl<<"Destination->";
+    cin.ignore();
     getline(cin,de);
-    cout<<endl<<"Test Code-> ";
-    cin>>tc;
-    cout<<endl<<"No. of candidates: ";
-    cin>>nc;
+    cout<<endl<<"Distance-> ";
+    cin>>di;
     cout<<endl;
-    test t;
-    t.SCHEDULE(tc,nc,de);
-    t.DISPTEST();
-    return 0;
+    k.FEEDINFO(fn,di,de);
+    k.SHOWINFO();
 }
