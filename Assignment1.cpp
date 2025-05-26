@@ -185,51 +185,107 @@ using namespace std;
 // A function FEEDINFO() to allow user to enter values for Flight Number, Destination, Distance & call function CALFUEL() to calculate the quantity of Fuel 
 // A function SHOWINFO() to allow user to view the content of all the data members   
 
-class Kingfisher
+// class Kingfisher
+// {
+//     int flight_no;
+//     float distance,fuel;
+//     string destination;
+//     float CALFUEL(void)
+//     {
+//         if(distance<=1000)
+//         return (500);
+//         else if(distance>1000 && distance<=2000)
+//         return (1100);
+//         else
+//         return (2200);
+//     }
+//     public:
+//     void FEEDINFO(int f,float di,string d)
+//     {
+//         flight_no = f;
+//         distance = di;
+//         destination = d;
+//         fuel = CALFUEL();
+//     }
+//     void SHOWINFO(void)
+//     {
+//         cout<<"Flight Details: "<<endl;
+//         cout<<"Flight number: "<<flight_no<<endl;
+//         cout<<"Destination: "<<destination<<" "<<"Distance: "<<distance<<endl;
+//         cout<<"Fuel required: "<<fuel<<endl;
+//     }
+// };
+// int main()
+// {
+//     Kingfisher k;
+//     int fn;
+//     string de;
+//     float di;
+//     cout<<"Enter flight details: "<<endl;
+//     cout<<"Flight number-> ";
+//     cin>>fn;
+//     cout<<endl<<"Destination->";
+//     cin.ignore();
+//     getline(cin,de);
+//     cout<<endl<<"Distance-> ";
+//     cin>>di;
+//     cout<<endl;
+//     k.FEEDINFO(fn,di,de);
+//     k.SHOWINFO();
+// }
+
+// 5. Define a class BOOK with the following specifications : 
+// Private members of the class BOOK are 
+// BOOK NO                integer type 
+// BOOKTITLE             20 characters 
+// PRICE                     float (price per copy) 
+// TOTAL_COST()        A function to calculate the total cost for N number of copies where N is passed to the function as argument. 
+// Public members of the class BOOK are 
+// INPUT()                   function to read BOOK_NO. BOOKTITLE, PRICE 
+// PURCHASE()            function to ask the user to input the number of copies to be purchased. It invokes TOTAL_COST() and prints the total cost to be paid by the user. 
+// Note : You are also required to give detailed function definitions.   
+
+class BOOK
 {
-    int flight_no;
-    float distance,fuel;
-    string destination;
-    float CALFUEL(void)
+    int bookno;
+    float price;
+    char booktitle[20];
+    float TOTAL_COST(int n)
     {
-        if(distance<=1000)
-        return (500);
-        else if(distance>1000 && distance<=2000)
-        return (1100);
-        else
-        return (2200);
+        return (price*n);
     }
     public:
-    void FEEDINFO(int f,float di,string d)
+    void INPUT(int bn,float p,const char*b)
     {
-        flight_no = f;
-        distance = di;
-        destination = d;
-        fuel = CALFUEL();
+        bookno = bn;
+        price = p;
+        strncpy(booktitle,b,sizeof(booktitle));
+        booktitle[sizeof(booktitle)-1] = '\0';
     }
-    void SHOWINFO(void)
+    void PURCHASE(void)
     {
-        cout<<"Flight Details: "<<endl;
-        cout<<"Flight number: "<<flight_no<<endl;
-        cout<<"Destination: "<<destination<<" "<<"Distance: "<<distance<<endl;
-        cout<<"Fuel required: "<<fuel<<endl;
+        int a;
+        cout<<"The book "<<booktitle<<" costs "<<price<<" rupees."<<endl;
+        cout<<"How many copies do you want?"<<endl;
+        cin>>a;
+        cout<<"Total amount to be paid is: "<<TOTAL_COST(a)<<endl;
     }
 };
 int main()
 {
-    Kingfisher k;
-    int fn;
-    string de;
-    float di;
-    cout<<"Enter flight details: "<<endl;
-    cout<<"Flight number-> ";
-    cin>>fn;
-    cout<<endl<<"Destination->";
+    int bon;
+    float pr;
+    char bt[20];
+    cout<<"Enter the book details which you want->"<<endl;
+    cout<<"Book number-> ";
+    cin>>bon;
+    cout<<endl<<"Book title-> ";
     cin.ignore();
-    getline(cin,de);
-    cout<<endl<<"Distance-> ";
-    cin>>di;
-    cout<<endl;
-    k.FEEDINFO(fn,di,de);
-    k.SHOWINFO();
+    cin.getline(bt,20);
+    cout<<endl<<"Book price-> ";
+    cin>>pr;
+    BOOK b1;
+    b1.INPUT(bon,pr,bt);
+    b1.PURCHASE();
+    return 0;
 }
