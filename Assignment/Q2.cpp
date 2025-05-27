@@ -19,34 +19,38 @@ using namespace std;
 
 class Batsman
 {
+    private:
     int bcode,innings,notout,runs;
     char bname[20];
     float batavg;
-    float calcavg(void)
-    {
-        if(innings == notout)
-        return ((float)runs/innings);
-        else
-        return((float)runs/(innings - notout));
-    }
+    float calcavg(void);
     public:
-    void readdata(const char* name,int c,int i,int n,int r)
-    {
-        strncpy(bname,name,sizeof(bname));
-        bname[sizeof(bname)-1]= '\0';
-        bcode = c;
-        innings = i;
-        notout = n;
-        runs = r;
-        batavg = calcavg();
-    }
-    void displaydata(void)
-    {
-        cout<<"Batter name: "<<bname<<endl;
-        cout<<"Innings played: "<<innings<<" "<<"Runs: "<<runs<<endl;
-        cout<<"Times Notout: "<<notout<<" "<<"Batting Average: "<<batavg<<endl;
-    }
+    void readdata(const char* name,int c,int i,int n,int r);
+    void displaydata(void);
 };
+float Batsman::calcavg(void)
+{
+    if(innings == notout)
+    return ((float)runs/innings);
+    else
+    return((float)runs/(innings - notout));
+}
+void Batsman::readdata(const char* name,int c,int i,int n,int r)
+{
+    strncpy(bname,name,sizeof(bname));
+    bname[sizeof(bname)-1]= '\0';
+    bcode = c;
+    innings = i;
+    notout = n;
+    runs = r;
+    batavg = calcavg();
+}
+void Batsman::displaydata(void)
+{
+    cout<<"Batter name: "<<bname<<endl;
+    cout<<"Innings played: "<<innings<<" "<<"Runs: "<<runs<<endl;
+    cout<<"Times Notout: "<<notout<<" "<<"Batting Average: "<<batavg<<endl;
+}
 int main()
 {
     int co,in,ru,no;

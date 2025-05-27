@@ -22,34 +22,38 @@ using namespace std;
 
 class Kingfisher
 {
+    private:
     int flight_no;
     float distance,fuel;
     string destination;
-    float CALFUEL(void)
-    {
-        if(distance<=1000)
-        return (500);
-        else if(distance>1000 && distance<=2000)
-        return (1100);
-        else
-        return (2200);
-    }
+    float CALFUEL(void);
     public:
-    void FEEDINFO(int f,float di,string d)
-    {
-        flight_no = f;
-        distance = di;
-        destination = d;
-        fuel = CALFUEL();
-    }
-    void SHOWINFO(void)
-    {
-        cout<<"Flight Details: "<<endl;
-        cout<<"Flight number: "<<flight_no<<endl;
-        cout<<"Destination: "<<destination<<" "<<"Distance: "<<distance<<endl;
-        cout<<"Fuel required: "<<fuel<<endl;
-    }
+    void FEEDINFO(int f,float di,string d);
+    void SHOWINFO(void);
 };
+float Kingfisher::CALFUEL(void)
+{
+    if(distance<=1000)
+    return (500);
+    else if(distance>1000 && distance<=2000)
+    return (1100);
+    else
+    return (2200);
+}
+void Kingfisher::FEEDINFO(int f,float di,string d)
+{
+    flight_no = f;
+    distance = di;
+    destination = d;
+    fuel = CALFUEL();
+}
+void Kingfisher::SHOWINFO(void)
+{
+    cout<<"Flight Details: "<<endl;
+    cout<<"Flight number: "<<flight_no<<endl;
+    cout<<"Destination: "<<destination<<" "<<"Distance: "<<distance<<endl;
+    cout<<"Fuel required: "<<fuel<<endl;
+}
 int main()
 {
     Kingfisher k;

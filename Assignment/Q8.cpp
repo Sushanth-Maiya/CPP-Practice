@@ -14,24 +14,28 @@ using namespace std;
 
 class Complex
 {
+    private:
     float real,imaginary;
     public:
-    void set(float r,float i)
-    {
-        real = r;
-        imaginary = i;
-    }
-    void display(void)
-    {
-        cout<<"->"<<real<<"+"<<imaginary<<"i"<<endl;
-    }
-    Complex sum(Complex rhs)
-    {
-        rhs.real+=real;
-        rhs.imaginary+=imaginary;
-        return(rhs);
-    }
+    void set(float r,float i);
+    void display(void);
+    Complex sum(Complex rhs);
 };
+void Complex::set(float r,float i)
+{
+    real = r;
+    imaginary = i;
+}
+void Complex::display(void)
+{
+    cout<<"->"<<real<<"+"<<imaginary<<"i"<<endl;
+}
+Complex Complex::sum(Complex rhs)
+{
+    real+=rhs.real;
+    imaginary+=rhs.imaginary;
+    return(*this);
+}
 int main()
 {
     float re,im,re1,im1;
@@ -42,10 +46,10 @@ int main()
     Complex c1,c2,c3;
     c1.set(re,im);
     c2.set(re1,im1);
-    c3 = c1.sum(c2);
     cout<<"The three complex numbers are-"<<endl;
     c1.display();
     c2.display();
+    c3 = c1.sum(c2);
     c3.display();
     return 0;
 }

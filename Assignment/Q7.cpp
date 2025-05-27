@@ -19,36 +19,43 @@ using namespace std;
 
 class Rectangle
 {
+    private:
     float length,width;
     public:
-    void setLength(float l)
-    {
-        length = l;
-    }
-    void setWidth(float w)
-    {
-        width = w;
-    }
-    float perimeter(void)
-    {
-        return ((length+width)*2);
-    }
-    float area(void)
-    {
-        return (length*width);
-    }
-    void show(void)
-    {
-        cout<<"The length of the rectangle is "<<length<<" and width is "<<width<<endl;
-    }
-    int sameArea(Rectangle rhs)
-    {
-        if(area() == rhs.area())
-        return 1;
-        else
-        return 0;
-    }
+    void setLength(float l);
+    void setWidth(float w);
+    float perimeter(void);
+    float area(void);
+    void show(void);
+    int sameArea(Rectangle rhs);
 };
+void Rectangle::setLength(float l)
+{
+    length = l;
+}
+void Rectangle::setWidth(float w)
+{
+    width = w;
+}
+float Rectangle::perimeter(void)
+{
+    return ((length+width)*2);
+}
+float Rectangle::area(void)
+{
+    return (length*width);
+}
+void Rectangle::show(void)
+{
+    cout<<"The length of the rectangle is "<<length<<" and width is "<<width<<endl;
+}
+int Rectangle::sameArea(Rectangle rhs)
+{
+    if(area() == rhs.area())
+    return 1;
+    else
+    return 0;
+}
 int main()
 {
     Rectangle r1,r2;

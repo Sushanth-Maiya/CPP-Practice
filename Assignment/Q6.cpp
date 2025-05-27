@@ -19,42 +19,46 @@ using namespace std;
 
 class REPORT
 {
+    private:
     int adno,marks[5];
     float average;
     char name[20];
-    float GETAVG(void)
-    {
-        int sum =0;
-        for(int i=0;i<5;++i)
-        {
-            sum+=marks[i];
-        }
-        return (((float)sum)/5);
-    }
+    float GETAVG(void);
     public:
-    void READINFO(int a,const int*m,const char* na)
-    {
-        adno = a;
-        strncpy(name,na,sizeof(name));
-        name[sizeof(name)-1] = '\0';
-        for(int j=0;j<5;++j)
-        {
-            marks[j] = m[j];
-        }
-        average = GETAVG();
-    }
-    void DISPLAYINFO(void)
-    {
-        cout<<"Student Information: "<<endl;
-        cout<<"Admission number: "<<adno<<endl<<"Student Name: "<<name<<endl;
-        cout<<"Marks Obtained: "<<endl;
-        for(int k=0;k<5;++k)
-        {
-            cout<<marks[k]<<" ";
-        }
-        cout<<endl<<"Average: "<<average<<endl;
-    }
+    void READINFO(int a,const int*m,const char* na);
+    void DISPLAYINFO(void);
 };
+float REPORT::GETAVG(void)
+{
+    int sum =0;
+    for(int i=0;i<5;++i)
+    {
+        sum+=marks[i];
+    }
+    return (((float)sum)/5);
+}
+void REPORT::READINFO(int a,const int*m,const char* na)
+{
+    adno = a;
+    strncpy(name,na,sizeof(name));
+    name[sizeof(name)-1] = '\0';
+    for(int j=0;j<5;++j)
+    {
+        marks[j] = m[j];
+    }
+    average = GETAVG();
+}
+void REPORT::DISPLAYINFO(void)
+{
+    cout<<"Student Information: "<<endl;
+    cout<<"Admission number: "<<adno<<endl<<"Student Name: "<<name<<endl;
+    cout<<"Marks Obtained: "<<endl;
+    for(int k=0;k<5;++k)
+    {
+        cout<<marks[k]<<" ";
+    }
+    cout<<endl<<"Average: "<<average<<endl;
+}
 int main()
 {
     int an,n[5];

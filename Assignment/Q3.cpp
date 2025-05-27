@@ -19,29 +19,33 @@ using namespace std;
 
 class test
 {
+    private:
     int TestCode,NoCandidate,CenterReqd;
     string Description;
-    int CALCNTR(void)
-    {
-        return (NoCandidate/100+1);
-    }
+    int CALCNTR(void);
     public:
-    void SCHEDULE(int t,int n,string d)
-    {
-        TestCode = t;
-        NoCandidate = n;
-        Description = d;
-        CenterReqd = CALCNTR();
-    }
-    void DISPTEST(void)
-    {
-        cout<<"TEST Content: "<<endl;
-        cout<<"Test Code: "<<TestCode<<endl;
-        cout<<"Number of candidates: "<<NoCandidate<<endl;
-        cout<<"Description: "<<Description<<endl;
-        cout<<"Centers Required: "<<CenterReqd<<endl;
-    }
+    void SCHEDULE(int t,int n,string d);
+    void DISPTEST(void);
 };
+int test::CALCNTR(void)
+{
+    return (NoCandidate/100+1);
+}
+void test::SCHEDULE(int t,int n,string d)
+{
+    TestCode = t;
+    NoCandidate = n;
+    Description = d;
+    CenterReqd = CALCNTR();
+}
+void test::DISPTEST(void)
+{
+    cout<<"TEST Content: "<<endl;
+    cout<<"Test Code: "<<TestCode<<endl;
+    cout<<"Number of candidates: "<<NoCandidate<<endl;
+    cout<<"Description: "<<Description<<endl;
+    cout<<"Centers Required: "<<CenterReqd<<endl;
+}
 int main()
 {
     int tc,nc;

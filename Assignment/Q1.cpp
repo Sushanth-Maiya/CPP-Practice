@@ -18,33 +18,37 @@ using namespace std;
 
 class Student
 {
+    private:
     int admno;
     char sname[20];
     float eng,math,science,total;
-    float ctotal(void)
-    {
-        return(eng+math+science);
-    }
+    float ctotal(void);
     public:
-    void Takedata(int a,const char* b,float e,float m,float s)
-    {
-        admno = a;
-        strncpy(sname,b,sizeof(sname));
-        sname[sizeof(sname)-1] = '\0';
-        eng = e;
-        math = m;
-        science = s;
-        total = ctotal();
-    }
-    void Showdata(void)
-    {
-        cout<<"Admission no. -> "<<admno<<endl;
-        cout<<"Name -> "<<sname<<endl;
-        cout<<"Marks: "<<endl;
-        cout<<"English -> "<<eng<<endl<<"Maths -> "<<math<<endl<<"Science -> "<<science<<endl;
-        cout<<"Total Marks-> "<<total<<endl;
-    }
+    void Takedata(int a,const char* b,float e,float m,float s);
+    void Showdata(void);
 };
+float Student::ctotal(void)
+{
+    return(eng+math+science);
+}
+void Student::Takedata(int a,const char* b,float e,float m,float s)
+{
+    admno = a;
+    strncpy(sname,b,sizeof(sname));
+    sname[sizeof(sname)-1] = '\0';
+    eng = e;
+    math = m;
+    science = s;
+    total = ctotal();
+}
+void Student::Showdata(void)
+{
+    cout<<"Admission no. -> "<<admno<<endl;
+    cout<<"Name -> "<<sname<<endl;
+    cout<<"Marks: "<<endl;
+    cout<<"English -> "<<eng<<endl<<"Maths -> "<<math<<endl<<"Science -> "<<science<<endl;
+    cout<<"Total Marks-> "<<total<<endl;
+}
 int main()
 {
     Student s;

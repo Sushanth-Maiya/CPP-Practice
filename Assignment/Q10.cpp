@@ -14,29 +14,33 @@ using namespace std;
 
 class time
 {
+    private:
     int hours,minutes;
     public:
-    void setTime(int h,int m)
-    {
-        hours = h;
-        minutes = m;
-    }
-    void showTime(void)
-    {
-        cout<<hours<<" hours and "<<minutes<<" minutes"<<endl;
-    }
-    time sum(time rhs)
-    {
-        rhs.hours+=hours;
-        rhs.minutes+=minutes;
-        if(rhs.minutes >= 60)
-        {
-            rhs.hours++;
-            rhs.minutes-=60;
-        }
-        return(rhs);
-    }
+    void setTime(int h,int m);
+    void showTime(void);
+    time sum(time rhs);
 };
+void time::setTime(int h,int m)
+{
+    hours = h;
+    minutes = m;
+}
+void time::showTime(void)
+{
+    cout<<hours<<" hours and "<<minutes<<" minutes"<<endl;
+}
+time time::sum(time rhs)
+{
+    hours+=rhs.hours;
+    minutes+=rhs.minutes;
+    if(minutes >= 60)
+    {
+        hours++;
+        minutes-=60;
+    }
+    return(*this);
+}
 int main()
 {
     int h1,h2,m1,m2;
@@ -53,9 +57,9 @@ int main()
     time t1,t2,t3;
     t1.setTime(h1,m1);
     t2.setTime(h2,m2);
-    t3 = t1.sum(t2);
     cout<<"Time set 1: ";
     t1.showTime();
+    t3 = t1.sum(t2);
     cout<<"Time set 2: ";
     t2.showTime();
     cout<<"Time set 3: ";

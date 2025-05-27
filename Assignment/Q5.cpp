@@ -17,30 +17,34 @@ using namespace std;
 
 class BOOK
 {
+    private:
     int bookno;
     float price;
     char booktitle[20];
-    float TOTAL_COST(int n)
-    {
-        return (price*n);
-    }
+    float TOTAL_COST(int n);
     public:
-    void INPUT(int bn,float p,const char*b)
-    {
-        bookno = bn;
-        price = p;
-        strncpy(booktitle,b,sizeof(booktitle));
-        booktitle[sizeof(booktitle)-1] = '\0';
-    }
-    void PURCHASE(void)
-    {
-        int a;
-        cout<<"The book "<<booktitle<<" costs "<<price<<" rupees."<<endl;
-        cout<<"How many copies do you want?"<<endl;
-        cin>>a;
-        cout<<"Total amount to be paid is: "<<TOTAL_COST(a)<<endl;
-    }
+    void INPUT(int bn,float p,const char*b);
+    void PURCHASE(void);
 };
+float BOOK::TOTAL_COST(int n)
+{
+    return (price*n);
+}
+void BOOK::INPUT(int bn,float p,const char*b)
+{
+    bookno = bn;
+    price = p;
+    strncpy(booktitle,b,sizeof(booktitle));
+    booktitle[sizeof(booktitle)-1] = '\0';
+}
+void BOOK::PURCHASE(void)
+{
+    int a;
+    cout<<"The book "<<booktitle<<" costs "<<price<<" rupees."<<endl;
+    cout<<"How many copies do you want?"<<endl;
+    cin>>a;
+    cout<<"Total amount to be paid is: "<<TOTAL_COST(a)<<endl;
+}
 int main()
 {
     int bon;

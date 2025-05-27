@@ -14,25 +14,29 @@ using namespace std;
 
 class Distance
 {
+    private:
     int feet;
     float inches;
     public:
-    void set(int f,float i)
-    {
-        feet = f;
-        inches = i;
-    }
-    void disp(void)
-    {
-        cout<<inches<<" inches and "<<feet<<" feet"<<endl;
-    }
-    Distance add(Distance rhs)
-    {
-        rhs.feet+=feet;
-        rhs.inches+=inches;
-        return (rhs);
-    }
+    void set(int f,float i);
+    void disp(void);
+    Distance add(Distance rhs);
 };
+void Distance::set(int f,float i)
+{
+    feet = f;
+    inches = i;
+}
+void Distance::disp(void)
+{
+    cout<<inches<<" inches and "<<feet<<" feet"<<endl;
+}
+Distance Distance::add(Distance rhs)
+{
+    feet+=rhs.feet;
+    inches+=rhs.inches;
+    return (*this);
+}
 int main()
 {
     int fe,f1;
@@ -50,12 +54,12 @@ int main()
     Distance d1,d2,d3;
     d1.set(fe,in);
     d2.set(f1,i1);
-    d3 = d1.add(d2);
     cout<<"Distances u entered: "<<endl;
     cout<<"1. ";
     d1.disp();
     cout<<endl<<"2. ";
     d2.disp();
+    d3 = d1.add(d2);
     cout<<endl<<"3. ";
     d3.disp();
     cout<<endl;
