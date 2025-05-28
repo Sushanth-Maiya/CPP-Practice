@@ -19,7 +19,7 @@ class time
     public:
     void setTime(int h,int m);
     void showTime(void);
-    time sum(time rhs);
+    time sum(const time rhs);
 };
 void time::setTime(int h,int m)
 {
@@ -30,7 +30,7 @@ void time::showTime(void)
 {
     cout<<hours<<" hours and "<<minutes<<" minutes"<<endl;
 }
-time time::sum(time rhs)
+time time::sum(const time rhs)
 {
     hours+=rhs.hours;
     minutes+=rhs.minutes;

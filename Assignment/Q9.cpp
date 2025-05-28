@@ -20,7 +20,7 @@ class Distance
     public:
     void set(int f,float i);
     void disp(void);
-    Distance add(Distance rhs);
+    Distance add(const Distance rhs);
 };
 void Distance::set(int f,float i)
 {
@@ -31,7 +31,7 @@ void Distance::disp(void)
 {
     cout<<inches<<" inches and "<<feet<<" feet"<<endl;
 }
-Distance Distance::add(Distance rhs)
+Distance Distance::add(const Distance rhs)
 {
     feet+=rhs.feet;
     inches+=rhs.inches;

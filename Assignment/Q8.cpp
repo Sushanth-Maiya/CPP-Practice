@@ -19,7 +19,7 @@ class Complex
     public:
     void set(float r,float i);
     void display(void);
-    Complex sum(Complex rhs);
+    Complex sum(const Complex rhs);
 };
 void Complex::set(float r,float i)
 {
@@ -30,7 +30,7 @@ void Complex::display(void)
 {
     cout<<"->"<<real<<"+"<<imaginary<<"i"<<endl;
 }
-Complex Complex::sum(Complex rhs)
+Complex Complex::sum(const Complex rhs)
 {
     real+=rhs.real;
     imaginary+=rhs.imaginary;
