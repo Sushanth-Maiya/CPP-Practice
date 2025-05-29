@@ -36,8 +36,8 @@ time time::sum(const time rhs)
     minutes+=rhs.minutes;
     if(minutes >= 60)
     {
-        hours++;
-        minutes-=60;
+        hours+=minutes/60;
+        minutes=minutes%60;
     }
     return(*this);
 }
