@@ -1,0 +1,22 @@
+@startuml Trial
+abstract class Car
+{
+    - name: string
+    - hp: int
+    - t_speed: int
+    + Car (n: string, h: int, t: int)
+    + type() : void
+}
+class bmw_suv
+{
+    + bmw_suv(n : string, h: int, t: int)
+    + type() : void
+}
+class bmw_coupe
+{
+    + bmw_coupe(n : string, h: int, t: int)
+    + type() : void
+}
+Car <|-- bmw_suv
+Car <|-- bmw_coupe
+@enduml
