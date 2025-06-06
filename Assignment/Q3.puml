@@ -1,0 +1,12 @@
+@startuml Q3
+class test
+{
+    - TestCode:int
+    - NoCandidate:int
+    - CenterReqd:int
+    - Description:string
+    - CALCNTR():int
+    + SCHEDULE(t:int, n:int, d:string):void
+    + DISPTEST():void
+}
+@enduml

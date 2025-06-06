@@ -1,0 +1,10 @@
+@startuml Q9
+class Distance
+{
+    - feet:int
+    - inches:float
+    + set(f:int, i:float):void
+    + disp():void
+    + add(const Distance):Distance
+}
+@enduml

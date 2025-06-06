@@ -1,0 +1,10 @@
+@startuml Q10
+class time 
+{
+    - hours:int
+    - minutes:int
+    + setTime(h:int, m:int):void 
+    + showTime():void
+    + sum(const time):time
+}
+@enduml

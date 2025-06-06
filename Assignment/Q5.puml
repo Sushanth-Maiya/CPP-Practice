@@ -1,0 +1,11 @@
+@startuml Q5
+class BOOK
+{
+    - bookno:int
+    - price:float
+    - booktitle[20]:char
+    - TOTAL_COST(int):float
+    + INPUT(bn:int, p:float, b:const char*):void
+    + PURCHASE():void
+}
+@enduml

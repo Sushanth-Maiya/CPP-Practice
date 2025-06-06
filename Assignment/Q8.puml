@@ -1,0 +1,10 @@
+@startuml Q8
+class Complex
+{
+    - real:float
+    - imaginary:float
+    + set(r:float, i:float):void
+    + display():void
+    + sum(const Complex):Complex
+}
+@enduml

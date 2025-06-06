@@ -1,0 +1,13 @@
+@startuml Q7
+class Rectangle
+{
+    - length:float
+    - width:float
+    + setLength(l):void
+    + setWidth(w):void
+    + perimeter():float
+    + area():float
+    + show():void
+    + sameArea(Rectangle):int
+}
+@enduml

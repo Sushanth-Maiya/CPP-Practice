@@ -1,0 +1,12 @@
+@startuml Q4
+class Kingfisher
+{
+    - flight_no:int
+    - distance:float
+    - fuel:float
+    - destination:string
+    - CALFUEL():float
+    + FEEDINFO(f:int, di:float, d:string):void
+    + SHOWINFO():void
+}
+@enduml

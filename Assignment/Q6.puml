@@ -1,0 +1,12 @@
+@startuml Q6
+class REPORT
+{
+    - adno:int
+    - marks[5]:int
+    - average:float
+    - name[20]:char
+    - GETAVG():float
+    + READINFO(a:int, m:const int*, na:const char*):void
+    + DISPLAYINFO():void
+}
+@enduml

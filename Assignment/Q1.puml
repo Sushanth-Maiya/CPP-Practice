@@ -1,0 +1,14 @@
+@startuml Q1
+Class Student
+{
+    - admno:int
+    - sname[20]:char
+    - eng:float
+    - math:float
+    - science:float
+    - total:float
+    - ctotal():float
+    + Takedata(a:int, b:const char*, e:float, m:float, s:float):void
+    + Showdata():void
+}
+@enduml

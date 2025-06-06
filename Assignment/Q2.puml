@@ -1,0 +1,14 @@
+@startuml Q2
+class Batsman
+{
+    - bcode:int
+    - innings:int
+    - notout:int
+    - runs:int
+    - bname[20]:char
+    - batavg:float
+    - calcavg():float
+    + readdata(name:const char*, c:int, i:int, n:int, r:int):void
+    + displaydata():void
+}
+@enduml
